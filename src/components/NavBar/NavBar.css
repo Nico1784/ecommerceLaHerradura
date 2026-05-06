@@ -1,0 +1,101 @@
+
+.contenedor-header{
+   background: linear-gradient(rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.8)),
+     url(../../assets/img/fondoHerramientas1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left center;
+
+  height: 18vh;
+  width: auto;
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
+  border-bottom: 0.5px solid rgb(95, 92, 92);
+
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo img {
+  height: 10vh;
+  width: 8vw;
+}
+.logo p {
+  color: rgb(250, 249, 249);
+  font-size: 24px;
+  font-family: system-ui, -apple-system;
+  font-weight: 400;
+  margin: 0;
+  
+}
+
+.logo:hover {
+  background-color: rgba(231, 151, 3, 0.4);
+}
+
+
+
+ nav {
+  display: flex;
+  width: 40%;
+  justify-content: space-around;
+ 
+ }
+
+
+ 
+
+li {
+  
+  color: rgb(250, 249, 249);
+  font-size: 20px;
+  font-family: system-ui, -apple-system;
+  font-weight: 450;
+  
+  list-style: none;
+  
+  position: relative; /* IMPORTANTE */
+}
+
+
+li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  
+  bottom: 1.5px; /* ajustá según te guste */
+  width: 0;
+  height: 1.5px;
+  background-color: rgba(231, 151, 3, 1);;
+  transition: width 0.8s ease;
+}
+
+/* animación izquierda → derecha */
+li:hover::after {
+  width: 100%;
+}
+
+button{
+     color: rgb(250, 249, 249);
+    background-color: rgb(71, 70, 70);
+    width: 90%;
+    height: auto;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+
+
+

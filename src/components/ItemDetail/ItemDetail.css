@@ -1,0 +1,55 @@
+.contenedor-ItemDetail {
+  display: flex;
+  gap: 30px;
+
+  height: auto;
+  width: auto;
+
+  justify-content: center;
+   
+  background: linear-gradient(rgba(0, 0, 0, 0.2),
+   rgba(0, 0, 0, 0.6)),
+   url(../src/assets/img/FondoMadera2.jpg);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+
+ 
+  
+}
+
+/* Imagen a la izquierda */
+ .img-ItemDetail {
+  margin-top: 30px;
+  height: 60vh;
+  width: auto;
+  
+  object-fit: cover; /*evita deformación*/
+  
+}
+
+/* Contenido a la derecha */
+.contenido-ItemDetail {
+   display: flex;
+  flex-direction: column;
+  justify-content: center; /* centra vertical */
+  
+  margin-left:30px ;
+
+  color:rgb(246, 248, 250);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Oxygen;
+  font-size: 20px;
+}
+
+
+.button-itemdetail{
+    color: rgb(250, 249, 249);
+    background-color: rgb(71, 70, 70);
+  
+    height: auto;
+    font-size: 18px;
+    border-radius: 10px;
+    
+    width: 14vw;
+} 

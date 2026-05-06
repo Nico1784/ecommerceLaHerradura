@@ -1,0 +1,25 @@
+
+.icon-cart{
+    color:rgb(255, 255, 255);
+    font-size: 40px;
+    display: flex;
+}
+
+.icon-cart-burbuja {
+  
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 20px;
+  height: 22px;
+
+  padding: 0 7px;
+  border-radius: 999px;
+  background: #1c0de6;
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 800;
+}
