@@ -1,45 +1,19 @@
 
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
-  import data from "../data/data.json"
- 
-  //data = array con los productos//
-
-
-const  getProducts =  () => {
-
-  return new Promise ( (resolve) => {
-   setTimeout( () => {
-    
-            resolve(data)
-
-             }, 1000);
-  });  
+const firebaseConfig = {
+  apiKey: "AIzaSyDHs4SfuH1ByIV4thFKJFaIludcVli9A_Q",
+  authDomain: "ecommorce-laherradura.firebaseapp.com",
+  projectId: "ecommorce-laherradura",
+  storageBucket: "ecommorce-laherradura.firebasestorage.app",
+  messagingSenderId: "815343648772",
+  appId: "1:815343648772:web:6690ba316b9e193d963551"
 };
 
-
-const getProductById = (productId) =>  {
-
-  return new Promise((resolve) => {
-    
-       setTimeout( () => {
-
-        const product = data.find( (productData) => productData.id === Number(productId)  );
-
-        resolve(product);
+initializeApp(firebaseConfig);
 
 
-    }, 1000);
-  });
-}
+const db= getFirestore()
 
-
-
-
-
-
-export {getProducts, getProductById} 
-
-
-
-
-
+export default db;

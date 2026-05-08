@@ -14,9 +14,6 @@ function CartWidget() {
   
  const {quantityCart}=useContext(CartContext)
 
-
- console.log(quantityCart)
-
   return (
     
     <Link to="/cart">

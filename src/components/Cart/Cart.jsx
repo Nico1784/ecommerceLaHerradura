@@ -3,6 +3,7 @@
   import{CartContext} from "../../Context/CartContext/CartContext"
   import Alert from "../Alert/Alert"
   import Swal from "sweetalert2";
+  import {Link} from "react-router"
 
 
 
@@ -45,6 +46,10 @@
                  <h2 className="total-cart">Total Carrito ${ ( totalCart() ).toLocaleString("es-AR") }</h2>
 
                  <button onClick={()=>vaciarCart()}  className="button-vaciar">Vaciar</button>
+                 
+                  <Link to = "/checkout">
+                  <button  className="button-vaciar">Confirmar Compra</button>
+                  </Link>
 
               </div>
              

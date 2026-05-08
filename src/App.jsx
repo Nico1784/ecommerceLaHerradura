@@ -7,6 +7,7 @@ import {BrowserRouter, Routes, Route} from "react-router"
 import { CartProvider } from './Context/CartContext/CartContext'
 import Cart from  "./components/Cart/Cart"
 import Alert from './components/Alert/Alert'
+import CheckOut from './components/CheckOut/CheckOut'
 
 function App() {
 
@@ -22,7 +23,8 @@ function App() {
          <Route path="/rubro/:rubro" element={<ItemListContainer/>} />  
          <Route path="/detail/:idproduct" element={<ItemDetailContainer/>} />  
          <Route path="/cart" element={<Cart/>} /> 
-         <Route path="/alert" element={<Alert/>} /> 
+         <Route path="/checkout" element={<CheckOut/>} /> 
+         
        </Routes>
     </>
 
