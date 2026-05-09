@@ -6,7 +6,6 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import {BrowserRouter, Routes, Route} from "react-router"
 import { CartProvider } from './Context/CartContext/CartContext'
 import Cart from  "./components/Cart/Cart"
-import Alert from './components/Alert/Alert'
 import CheckOut from './components/CheckOut/CheckOut'
 
 function App() {

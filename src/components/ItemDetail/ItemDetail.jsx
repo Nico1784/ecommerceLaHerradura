@@ -20,7 +20,7 @@ function ItemDetail({product}) {
   
    addProductInCart(newProduct);
 
- 
+   console.log(newProduct)
   
  }
 

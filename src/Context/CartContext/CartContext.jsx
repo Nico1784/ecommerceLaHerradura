@@ -6,8 +6,7 @@ const CartContext=createContext(null)
 
 const CartProvider =({children}) =>{
 
-
-  const [cart,setCart] =useState([]);
+ const [cart,setCart] =useState([]);
 
 
   //Funciones Carrito
@@ -105,9 +104,11 @@ const CartProvider =({children}) =>{
 
   }
 
-  
-
- //  console.log(cart)
+  const confirmedCart = () =>{
+      setCart([])
+      Swal.fire("Confirmado!", "Orden de Compra Generada", "success");
+      }
+    
 
  
  return(
@@ -115,13 +116,14 @@ const CartProvider =({children}) =>{
    <CartContext.Provider value={  {cart,
                                   addProductInCart,totalCart,
                                   quantityCart,vaciarCart,
-                                  deleteItemCart, addQuantity,deleteQuantity}  }>
+                                  deleteItemCart, addQuantity,deleteQuantity,confirmedCart}  }>
        {children}
    </CartContext.Provider>
- );
-
-
+ )
 }
+
+
+
 
 export {CartProvider, CartContext}
 

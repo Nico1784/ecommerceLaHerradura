@@ -1,9 +1,9 @@
   import "./Cart.css"
   import {useContext,useState} from "react"
   import{CartContext} from "../../Context/CartContext/CartContext"
-  import Alert from "../Alert/Alert"
   import Swal from "sweetalert2";
   import {Link} from "react-router"
+  import ItemListContainer from "../ItemListContainer/ItemListContainer"
 
 
 
@@ -58,7 +58,9 @@
     )
 
    } else {
-    return <Alert texto={"Carrito vacío"} />
+     Swal.fire("Carrito Vacío!","No Hay Productos Agregados",
+                             "error");
+                          
    }
   }
 
