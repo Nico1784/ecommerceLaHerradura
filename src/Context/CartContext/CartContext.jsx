@@ -6,25 +6,25 @@ const CartContext=createContext(null)
 
 const CartProvider =({children}) =>{
 
- const [cart,setCart] =useState([]);
+const [cart,setCart] =useState([]);
 
 
   //Funciones Carrito
  
   const addProductInCart= (newProduct)=>{
    
-   const existe = cart.find( (p=>p.id===newProduct.id))
+    const existe = cart.find( (p=>p.id===newProduct.id))
    
-   if(existe){
+    if(existe){
     
-    const Productnew =  cart.map(p=>
+      const Productnew =  cart.map(p=>
       
-      p.id===newProduct.id 
+        p.id===newProduct.id 
 
-       ? {...p, quantity: p.quantity + newProduct.quantity }
-       : p
-    )
-
+         ? {...p, quantity: p.quantity + newProduct.quantity }
+         : p
+       )
+   
     Swal.fire("Agregado!", "Producto añadido al carrito", "success");
 
     setCart(Productnew)
@@ -51,6 +51,7 @@ const CartProvider =({children}) =>{
   };
 
   const vaciarCart = () =>{
+
     Swal.fire({
       title: "Desea Eliminar todos los Productos?",
       icon: "warning",
@@ -58,13 +59,15 @@ const CartProvider =({children}) =>{
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Si, Eliminar!"
+
     }).then((result) => {
+
       if (result.isConfirmed) {
          Swal.fire({
-        title: "Eliminados!",
-        text: "Todo los Productos han sido Eliminados.",
-        icon: "success"
-      });
+           title: "Eliminados!",
+           text: "Todo los Productos han sido Eliminados.",
+           icon: "success"
+         });
        setCart([])
       }
     });
@@ -74,7 +77,7 @@ const CartProvider =({children}) =>{
 
   const deleteItemCart=(idEliminar)=>{
     const newCart= cart.filter( product=>product.id !== idEliminar)
-   setCart(newCart)
+    setCart(newCart)
 
   }
 
@@ -101,7 +104,6 @@ const CartProvider =({children}) =>{
       : p 
      )
       setCart(newCart)
-
   }
 
   const confirmedCart = () =>{
@@ -121,8 +123,6 @@ const CartProvider =({children}) =>{
    </CartContext.Provider>
  )
 }
-
-
 
 
 export {CartProvider, CartContext}
