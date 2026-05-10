@@ -2,23 +2,32 @@
   import {useContext,useState} from "react"
   import{CartContext} from "../../Context/CartContext/CartContext"
   import Swal from "sweetalert2";
-  import {Link} from "react-router"
+  import {Link, useNavigate} from "react-router"
   import ItemListContainer from "../ItemListContainer/ItemListContainer"
-
-
-
 
 
   function Cart() {
     
     const {cart,totalCart,vaciarCart,deleteItemCart,addQuantity,deleteQuantity} = useContext(CartContext) 
 
+    const navigate = useNavigate();
+
       
-     if (cart.length > 0) {
+     if (cart.length === 0) {
+
+            Swal.fire("Carrito Vacío!","No Hay Productos Agregados","error")
+
+             .then( () => { //then() se ejecuta cuando el usuario cierra la alerta.
+
+              navigate("/")
+           
+            })
+
+            return; // Corto la ejecución del código
+
+         }
     
       return (
-           
-          
 
           <div className="cart-container">
 
@@ -36,7 +45,7 @@
 
                   <button onClick={ ()=>deleteQuantity(productCart.id) } className="cart-button">-</button>
 
-                  <button onClick={ ()=>deleteItemCart(productCart.id) } className="cart-button">❌</button>
+                  <button onClick={ ()=>deleteItemCart(productCart.id) } className="cart-button">🗑</button>
 
                       
               </div> 
@@ -57,11 +66,11 @@
           </div>
     )
 
-   } else {
-     Swal.fire("Carrito Vacío!","No Hay Productos Agregados",
-                             "error");
+  //  } else {
+  //    Swal.fire("Carrito Vacío!","No Hay Productos Agregados",
+  //                            "error");
                           
-   }
-  }
+  //  }
+}
 
   export default Cart
