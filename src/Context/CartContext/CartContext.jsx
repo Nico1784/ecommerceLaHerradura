@@ -11,34 +11,63 @@ const [cart,setCart] =useState([]);
 
   //Funciones Carrito
  
-  const addProductInCart= (newProduct)=>{
-   
-    const existe = cart.find( (p=>p.id===newProduct.id))
-   
-    if(existe){
-    
-      const Productnew =  cart.map(p=>
-      
-        p.id===newProduct.id 
+  const addProductInCart = (newProduct) => {
 
-         ? {...p, quantity: p.quantity + newProduct.quantity }
-         : p
-       )
-   
-    Swal.fire("Agregado!", "Producto añadido al carrito", "success");
+  const existe = cart.find((p) => p.id === newProduct.id)
+
+  if (existe) {
+
+    // Validar stock
+    if (existe.quantity + newProduct.quantity > existe.stock) {
+
+      Swal.fire(
+        "Sin Stock!",
+        "Cantidad solicitada no disponible",
+        "warning"
+      )
+
+      return  // corto la ejecusion del codigo cuando acepto el swal.fire
+    }
+
+    const Productnew = cart.map((p) =>
+
+      p.id === newProduct.id
+
+        ? { ...p, quantity: p.quantity + newProduct.quantity }
+        : p
+    )
+
+    Swal.fire(
+      "Agregado!",
+      "Producto añadido al carrito",
+      "success"
+    )
 
     setCart(Productnew)
 
-   }else{
-     
-     Swal.fire("Agregado!", "Producto añadido al carrito", "success");
-     
-     setCart( [...cart, newProduct ] )
+  } else {
 
-   }
-   
-   
-  };
+    // Validar stock cuando es nuevo producto
+    if (newProduct.quantity > newProduct.stock) {
+
+      Swal.fire(
+        "Sin Stock!",
+        "Cantidad solicitada no disponible",
+        "warning"
+      )
+
+      return
+    }
+
+    Swal.fire(
+      "Agregado!",
+      "Producto añadido al carrito",
+      "success"
+    )
+
+    setCart([...cart, newProduct])
+  }
+}
 
   const totalCart = ()=>(
     cart.reduce((acumulador,productCart) => {
@@ -85,7 +114,7 @@ const [cart,setCart] =useState([]);
 
     const newCart= cart.map( (p)=>
 
-      p.id===idItem && p.quantity< p.stock
+      p.id===idItem && p.quantity < p.stock
 
       ? {...p, quantity: p.quantity + 1}
       : p 
@@ -120,6 +149,7 @@ const [cart,setCart] =useState([]);
                                   quantityCart,vaciarCart,
                                   deleteItemCart, addQuantity,deleteQuantity,confirmedCart}  }>
        {children}
+   
    </CartContext.Provider>
  )
 }

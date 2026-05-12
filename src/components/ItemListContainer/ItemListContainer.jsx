@@ -4,6 +4,7 @@ import ItemList from "../ItemList/ItemList"
 import "./ItemListContainer.css"
 import db from "../../assets/data/data.js";
 import { collection, getDocs, query , where} from 'firebase/firestore';
+import { MoonLoader } from 'react-spinners';
    
 
 
@@ -77,8 +78,8 @@ function ItemListContainer() {
    <div className='item-list-container'>
    
       {
-          loading=== true ? (<div className='cargando'>Cargando Productos.....</div>)
-           : ( <ItemList productos={productos} /> ) 
+          loading=== true ? (<div className='cargando'> <MoonLoader /> Cargando Productos.....</div>)
+                          : ( <ItemList productos={productos} /> ) 
       } 
       
       

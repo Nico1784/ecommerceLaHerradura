@@ -10,6 +10,8 @@ import { useParams } from "react-router"
  
 import {doc,getDoc} from "firebase/firestore"
 
+import { MoonLoader } from 'react-spinners'
+
 
 
 function ItemDetailContainer() {
@@ -52,7 +54,7 @@ function ItemDetailContainer() {
    
       {
           loading=== true 
-           ? (<div>Cargando Productos.....</div>)
+           ? (<div> <MoonLoader/> Cargando Productos.....</div>)
            : ( <ItemDetail product={product} /> ) 
       } 
       
